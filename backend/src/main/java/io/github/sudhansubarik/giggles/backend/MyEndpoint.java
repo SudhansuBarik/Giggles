@@ -10,8 +10,6 @@ import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
 
-import javax.inject.Named;
-
 import io.github.sudhansubarik.javajoker.Joker;
 
 /**
@@ -32,7 +30,7 @@ public class MyEndpoint {
     public MyBean tellJoke(){
         MyBean response = new MyBean();
         Joker joker = new Joker();
-        response.setData(joker.tellJoke());
+        response.setData(joker.getRandomJoke());
         return response;
     }
 }
