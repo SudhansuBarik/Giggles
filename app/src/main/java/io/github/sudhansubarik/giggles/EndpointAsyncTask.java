@@ -2,6 +2,7 @@ package io.github.sudhansubarik.giggles;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
@@ -47,8 +48,10 @@ class EndpointAsyncTask extends AsyncTask<MainActivityFragment, Void, String> {
 
         try {
             return myApiService.tellJoke().execute().getData();
-        } catch (IOException e) {
-            return e.getMessage();
+        } catch (IOException exception) {
+            String msg = "";
+            Log.e("EndpointAsyncTask", exception.getMessage());
+            return msg;
         }
     }
 
